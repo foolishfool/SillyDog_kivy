@@ -1,0 +1,47 @@
+#:kivy 1.0.9
+
+<Background>:
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            pos:self.parent.pos
+            size:self.parent.size
+
+
+<Dog>:
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'dog5.png'
+            pos:self.pos
+            size:self.size
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle:self.angle
+            origin: self.center
+    canvas.after:
+        PopMatrix
+<Fist>:
+    size:84,130
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source:'fist.png'
+            pos: self.pos
+            size:self.size
+
+
+
+<SillyDogGame>:
+    dog:sillydog
+    fist:fist
+    Background:
+    Dog:
+        id:sillydog
+
+    Fist:
+        id:fist
